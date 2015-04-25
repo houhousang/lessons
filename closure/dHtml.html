@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+	<head>
+		<title>闭包的了解</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	
+		<link href="../lib/css/styles.css" rel="stylesheet" />
+		<style type="text/css">
+			.f-w{
+				word-wrap: break-word;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="impress">
+			<div class="no-support-message">
+				<h1>该浏览器不支持!!!</h1>
+			</div>
+			
+			<div class="step" data-x="0" data-y="0">
+				<h1>闭包的理解</h1>
+			</div>
+			<div class="step" data-x="800" data-y="0">
+				<h1>什么是作用域链?</h1>
+				<h1>什么是垃圾回收?</h1>
+			</div>
+			
+			<div class="step" data-x="2400" data-y="0">
+				<h2>什么是闭包?</h2>
+				<p class="f-w">
+					权威指南:<br/>
+					<i>函数对象通过作用域链相互关联起来，函数体内的变量可以保存在函数作用域内</i>
+					<br/>
+					<br/>高级程序设计:</br>
+					<i>闭包是指有权访问另一个作用域中的函数，常见的创建方式就是在一个函数体内创建另一个函数</i>
+				</p>
+
+				<h3>一句话：就是在函数内访问或修改外部作用域的这种形式(可以和c语言作比较， c语言中的函数是平行的关系)</h3>
+			</div>
+			
+			<div class="step" data-x="500" data-y="-600">
+				<h2>闭包有哪些优点和缺点?</h2>
+			</div>
+			
+			<div class="step" data-x="500" data-y="-800" data-scale="0.5">
+				<h2>闭包的应用场景有哪些？</h2>
+			</div>
+			
+			<div class="step" data-x="0" data-y="-800" data-rotate="90">
+				<h2>关于this</h2>
+			</div>
+			
+			<!-- <div class="step" data-x="-100" data-y="-800" data-rotate-x="60" data-rotate-y="60" data-rotate-z="30">
+				This is slide 6 and it has a 3D transition.
+			</div>
+			
+			<div class="step" data-x="-2600" data-y="-800" data-rotate-x="30" data-rotate-y="-60" data-rotate-z="90" data-scale="4">
+				This is slide 7 and it has a 3D transition AND a scale.
+			</div> -->
+			
+		</div>
+		<script type="text/javascript" src="../lib/js/impress.js"></script>
+		<!--
+			call `impress().init()` function to initialize impress.js presentation.
+		-->
+		<script>impress().init();</script>
+	</body>
+</html>

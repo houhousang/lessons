@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<style type="text/css">
+		.btn{
+			width: 50px;
+			height: 20px;
+			display: inline-block;
+			margin-left: 20px;
+			text-align: center;
+			background: #ccc;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<h1>怎样可以点击每个按钮显示各自的序号？？？</h1>
+	<div class="btn t1">1</div>
+	<div class="btn t1">2</div>
+	<div class="btn t1">3</div>
+	<br/>
+	<br/>
+
+
+	<h1>怎样可以记下点击的次数？</h1>
+	<div class="btn t2">0</div>
+
+	<h1>ie9以下attach事件this的兼容？</h1>
+	<div class="btn t3">btn</div>
+</body>
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function(){
+		var btn_t1 = document.querySelectorAll('.t1');
+		var colors = ['red', 'blue', 'yellow'];
+
+		for(var i = 0, len = btn_t1.length; i < len; i++){
+			//TODO
+			(function(num){
+				btn_t1[num].onclick = function(){
+					btn_t1[num].style.background = colors[num];
+				};
+			})(i);
+		}
+
+		var btn_t2 = document.querySelector('.t2'), count = 0;
+		btn_t2.onclick = function(){
+			this.innerText = ++count;   //访问并且修改函数外部count的值
+		};
+
+		//ie9下attachEvent事件this属性的兼容
+		var btn_t3 = document.querySelector('.t3');
+		if(btn_t3.attachEvent){
+			btn_t3.attachEvent('click', function(){
+				alert( Object.prototype.toString.call(this) );
+				//TODO
+			});
+		}
+	});
+</script>
+</html>
