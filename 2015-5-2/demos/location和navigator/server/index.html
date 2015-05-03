@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hash, querystring</title>
+</head>
+<style type="text/css">
+	#info{
+		margin-top: 20px;
+		width: 200px;
+		background: #ccc;
+		border-radius: 2px;
+		padding: 5px;
+	}
+	 #info p{
+	 	
+	 	height: 100px;
+	 }
+	button{
+		margin-top: 20px;
+	}
+</style>
+<body>
+	<form action="" id="form">
+		<label for="name">姓名</label>
+		<input type="text"  id="name" placeholder="姓名" name="name">
+		<br/>
+		<br/>
+		<label for="age">年龄</label>
+		<input type="text" id="age" placeholder="年龄" name="age">
+		<br/>
+		<br/>
+		<label for="intro">简介</label>
+		<br/>
+		<textarea name="intro" id="intro" cols="30" rows="10"></textarea>
+		<input type="submit" value="ok">		
+	</form>
+
+	<div id="info">
+		<span>姓名:</span><span id="i-name"></span>
+		<br/>
+		<span>年龄:</span><span id="i-age"></span>
+		<br/>
+		<span>简介:</span>	
+		<p id="i-intro"></p>
+	</div>
+</body>
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function(){
+		var pages = {};
+		var hash = 0;
+		$d('#form').addEventListener('submit', function(ev){
+			ev.preventDefault();
+			var self = this;
+			ajax({
+				url : '/ajax',
+				method : 'POST',
+				data : {
+					'name' : self['name'].value,
+					'age' : self['age'].value,
+					'intro' : self['intro'].value
+				}
+			},function(data){
+				location.hash = ++hash;
+				data = JSON.parse(data);
+				pages['#' + hash] = data;
+				loadH(data);
+			});
+		});
+		window.onhashchange = function(){
+			loadH( pages[location.hash] ? pages[location.hash] : {'name' : '', 'age' : '', 'intro' : ''});
+		};
+
+		function loadH(data){
+			$d('#i-name').innerText = data.name;
+			$d('#i-age').innerText = data.age;
+			$d('#i-intro').innerText = data.intro
+		}
+	});
+
+	function $d(s){
+		return document.querySelector(s);
+	}
+
+	function ajax(s, cb){
+		var xhr = new XMLHttpRequest();
+		xhr.open(s.method.toUpperCase(), s.url);
+		xhr.setRequestHeader('Content-Type', 'application/json');
+		xhr.send( JSON.stringify(s.data)  );
+		xhr.onreadystatechange = function(){
+			if(xhr.status === 200 && xhr.readyState === 4){
+				cb(xhr.responseText);
+			}
+		};
+	}
+</script>
+</html>

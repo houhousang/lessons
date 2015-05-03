@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>querySelectorAll的注意事项</title>
+</head>
+<body>
+	<ul id="test">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+</body>
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function(){
+		var qLs = $qn('li'), gLs = document.getElementsByTagName('li');
+
+		console.log('通过query', qLs.length);
+		console.log('通过get' ,gLs.length);
+
+		var li = document.createElement('li');
+		$qn('#test')[0].appendChild(li);
+
+		console.log('增加节点后===============');
+		console.log('通过query',qLs.length);
+		console.log('通过get' ,gLs.length);
+	});
+
+	function $qn(s){
+		return document.querySelectorAll(s);
+	}
+</script>
+</html>
