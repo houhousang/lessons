@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>setTimeout</title>
+</head>
+<style type="text/css">
+/*.test{
+	color: red;
+}*/
+
+div{
+	width: 100%;
+	height: 1000px;
+}
+
+</style>
+<body>
+	<!-- <div class="test" >1</div>
+	<div class="test">2</div>
+	<div class="test">3</div>
+	<div class="test">4</div>
+	<div class="test">5</div>
+	<div class="test">6</div>
+	<div class="test">7</div>
+	<div class="test">8</div>
+	<div class="test">9</div>
+	<div class="test">10</div> -->
+	<a href="">1</a>
+	<a href="">2</a>
+	<div id="div1">1</div>
+	<div id="div2">2</div>
+</body>
+<script type="text/javascript">
+	// var name = 'hahahha',age =20;
+	// for(var i = 0; i < 10000; i++);
+	// console.log('afs');
+	// setTimeout(function(){
+	// 		console.log('setTimeout');
+	// }, 0);
+	// console.log(name);
+	// console.log(age);
+	// console.log(i);
+	document.addEventListener('DOMContentLoaded', function(){
+		// var d = document.querySelectorAll('#info');
+		// console.log(Object.prototype.toString.call(d) );
+		// document.querySelector('#info');
+		// var t = document.getElementsByClassName('test');
+		var cs = document.getElementsByClassName('test');
+		console.log(cs.length);
+		var qs = document.querySelectorAll('.test');
+		console.log(qs.length);
+
+		var cd = document.createElement('div');
+		cd.className = 'test';
+		document.body.appendChild(cd);
+
+		// console.log(cs[0].style.color); //
+		console.log( getComputedStyle(cs[0], null)['color']);
+		// cs[0].style.backgroundColor = 'red';
+
+		// console.log(cs.length);
+		// console.log(qs.length);
+
+		// console.log(cs[0].style.backgroundColor);
+		// console.log(qs[0].style.backgroundColor);
+	});
+</script>
+</html>

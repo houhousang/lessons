@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>async_model</title>
+</head>
+<script type="text/javascript" src="./setTimeout.js"></script>
+<style type="text/css">
+	.s-e{
+		width: 100px;
+		height: 100px;
+		border: 1px solid #ccc;
+		margin: 10px auto 0;
+		text-align: center;
+		line-height: 100px;
+		cursor: pointer;
+	}
+</style>
+<body>
+	<div id="e_1" class="s-e">click</div>
+	<div id="e_2" class="s-e">mouseover</div>
+	<div id="e_3" class="s-e">keydown</div>
+</body>
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function(){
+		for(var i = 0; i < 1000; i++);
+		setTimeout(function(){
+			console.log(i);
+		}, 1000);
+		$d('#e_1')[0].addEventListener('click', function(){
+			alert('click');
+		});
+		$d('#e_2')[0].addEventListener('mouseover', function(){
+			alert('mouseover');
+		});
+		$d('#e_3')[0].addEventListener('keydown', function(){
+			alert('keydown');
+		});
+	});
+
+	function $d(s){
+		return document.querySelectorAll(s);
+	}
+</script>
+</html>

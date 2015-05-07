@@ -11,10 +11,15 @@ console.log(this);
 
 //3.在去全局函数的函数中
 function fn(){
+	console.log(this);
 	//todo解决办法
-	(function(){
-		console.log(this);
-	})();
+	// (function(){
+	// 	console.log(this);
+	// })();
+    var fn1 = function(){
+    	console.log(this);
+    }
+    fn1();
 }
 fn();
 
@@ -53,9 +58,45 @@ tDiv.onclick = function(){
 tDiv.addEventListener('mouseover', function(){
 	console.log(this);
 });
-//  <=ie8
+//  <= ie8
 tDiv.attachEvent('onmouseover', function(){
 	console.log(this);
 	//todo解决办法
 });
 document.appendChild(tDiv);
+
+
+//词法结构
+
+// console.log(nmae);
+
+fn();
+
+function fn(){
+	console.log(this);
+}
+
+var oo = {};
+
+fn.call(oo);
+
+var fn1 = fn.bind(oo);
+
+
+
+
+function P(name){
+	this.name  = name;
+}
+
+function PP(){
+	P.call(this);
+}
+
+var oooo = new PP();
+
+// P.prototype = {
+// 	age : 20
+// };
+
+// var o = new P();

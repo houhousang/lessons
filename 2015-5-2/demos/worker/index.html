@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// var num = 100000;
+		// while(num--) console.log(num);
+		// alert('ok');
+	</script>
+	<!-- <h1>利用worker计算斐波那契数列</h1> -->
+	<form action="" id="form">
+		<input type="text" name="i_num" placeholder="请输入n:">
+		<input type="submit" value="ok">
+	</form>
+	<div id="msg"></div>
+</body>
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function(){
+		var worker = new Worker('/worker');
+		worker.addEventListener('message', function(ev){
+			document.querySelector('#msg').innerText = ev.data;
+		});
+		var form = $d('#form')[0];
+		form.addEventListener('submit', function(ev){
+			ev.preventDefault();
+			var num = form['i_num'].value;
+			worker.postMessage(num);
+		});
+	});
+
+	function $d(s){
+		return document.querySelectorAll(s);
+	}
+</script>
+</html>

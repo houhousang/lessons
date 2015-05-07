@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3 animation</title>
+</head>
+<style type="text/css">
+	 #test{
+	 	width: 200px;
+	 	height: 200px;
+	 	background: #ccc;
+	}
+	.c{
+		-webkit-animation: test linear 1s;
+	}
+	@-webkit-keyframes test{
+		from{
+			width: 200px;
+	 		height: 200px;
+	 		background: #ccc;
+		}
+		to{
+			width: 100px;
+			height: 100px;
+		}
+	}
+</style>
+<body>
+	<div id="test"></div>
+</body>
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function(){
+		$d('#test')[0].addEventListener('click', function(){
+			var self = this;
+			// alert('werew');
+			// self.style.cssText = 'width:100px; height:100px;';
+			// self.style['-webit-animation'] = 'test linear 3s';
+			self.classList.add('c');
+		});
+	});
+
+	function $d(s){
+		return document.querySelectorAll(s);
+	}
+</script>
+</html>

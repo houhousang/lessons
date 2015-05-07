@@ -64,6 +64,7 @@
 				location.hash = ++hash;
 				data = JSON.parse(data);
 				pages['#' + hash] = data;
+				console.log(pages);
 				loadH(data);
 			});
 		});
@@ -72,9 +73,9 @@
 		};
 
 		function loadH(data){
-			$d('#i-name').innerText = data.name;
-			$d('#i-age').innerText = data.age;
-			$d('#i-intro').innerText = data.intro
+			$d('#i-name').innerHTML = data.name;
+			$d('#i-age').innerHTML = data.age;
+			$d('#i-intro').innerHTML = data.intro
 		}
 	});
 

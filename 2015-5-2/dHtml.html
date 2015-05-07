@@ -15,15 +15,14 @@
 			<div class="no-support-message">
 				<h1>该浏览器不支持!!!</h1>
 			</div>
-			
 			<div class="step" data-x="0" data-y="0">
 				<h1>this指向</h1>
 			</div>
 			<div class="step" data-x="800" data-y="0" data-rotate="80">
 				<h1>关于setTimeout</h1>
 				<h2>什么是异步?</h2>
-				<h2>关于js的线程 (事件循环， 观察者， 和异步IO) </h2>
-				<h2>关于js线程UI渲染阻塞问题最明显的例子 ：ie6</h2>
+				<h2>关于js的线程 (没有任何代码是立刻执行的) </h2>
+				<h2>关于js线程UI渲染阻塞问题(互斥)</h2>
 				<h2>关于html5 worker</h2>
 			</div>
 			
@@ -53,8 +52,12 @@
 				<p>《高性能javascript》一书中这样说:  使用innerHTML和纯DOM方法功能差别不大，innerHTML相对来说更快一些，除了最新的webkit引擎(chrome, safari)</p>
 			</div>
 			
-			<div class="step" data-x="-2600" data-y="-800" data-rotate-x="30" data-rotate-y="-60" data-rotate-z="90" data-scale="4">
-				<!-- <h1>关于</h1> -->
+			<div class="step" data-x="-2600" data-y="1800" data-rotate-x="30" data-rotate-y="-60" data-rotate-z="1600" data-scale="4">
+				<h1>浏览器嗅探兼容</h1>
+				<h3>参考网址:http://www.jb51.net/article/21834.htm</h3>
+				<h4>如：var isLteIE8 = !+[1,]; 判断ie5,6,7,8</h4>
+				<h4>如:判断XMLHttpRequest, getElementByClassName, Array.isArray等</h4>
+				<h4>如:  < !--[if IE 6] >你正在使用IE6 < ![endif]-- >这种ie注释法</h4>
 			</div>
 			
 		</div>
