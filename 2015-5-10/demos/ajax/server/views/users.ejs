@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>resetful</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <style type="text/css">
+  #form{
+  	display: none;
+  }
+  .s-wrap{
+  	margin-bottom: 10px;
+  }
+  </style>
+  <body>
+  	<div id="navs">
+  		<button>修改</button><button>删除</button><button>添加</button><button>查询</button>
+  	</div>
+  	<br/>
+  	<form action="" id="form">
+  		<div id="w-stu_id" class="s-wrap">
+  			<label for="stu_id">学号</label>
+  			<input type="text" name="stu_id">
+  		</div>
+  		<div id="w-name" class="s-wrap">
+  			<label for="name">姓名</label>
+  			<input type="text" name="name">
+  		</div>
+
+  		<div id="w-age" class="s-wrap">
+  			<label for="age">年龄</label>
+  			<input type="text" name="age">
+  		</div>
+  		<input type="submit" value="ok">
+  	</form>
+
+  	<div id="info">
+  	</div>
+  </body>
+  <script type="text/javascript">
+  var d = document, arr_each = [].forEach;
+
+  d.addEventListener('DOMContentLoaded', function(){
+  	var $btns = $d('#navs button'), $f = $d('#form')[0], api = 'users/v0.0.0/'/*resetful api*/,
+  	config = null/*xhr配置*/;
+  	arr_each.call($btns, function($btn, i){
+  		$btn.addEventListener('click', function(){
+  			switch(i){
+  				case 0 : (function(){  //更新(PUT)
+  					s_all();
+  					config = {
+  						method : 'PUT' ,
+  						hs : []
+  					};
+  				})();
+  				break;
+  				case 1 :  (function(){ //删除(DELETE)
+  					s_id();
+  					config = {
+  						method : 'DELETE' ,
+  						hs : []
+  					};
+  				})();
+  				break;
+  				case 2:(function(){   //添加(POST)
+  					s_all();
+  					config = {
+  						method : 'POST' ,
+  						hs : []
+  					};
+  				})();
+  				break;
+  				case 3:(function(){   //查询
+  					console.log( $f);
+  					s_id();
+  					config = {
+  						method : 'GET' ,
+  						hs : []
+  					};
+  				})();
+  				break;
+  			}
+  		});
+  	});
+
+  	$f.addEventListener('submit', function(ev){
+  		ev.preventDefault();
+  		config.url = api+ $f.stu_id.value;
+  		if( config.method == 'POST' || config.method == 'PUT' ){
+  			config.url += '/data?name=' + $f.name.value + '&' + 'age=' + $f.age.value;		
+  		}
+  		console.log(config.url);
+  		aS(config,function(res){
+  			$d('#info')[0].innerText = res;
+  		}, function(res){
+  			console.log(res);
+  		});
+  	});
+
+  	function s_id(){
+  		$f.style.display = 'block';
+  		$d('#w-name', $f)[0].style.display = 'none';
+  		$d('#w-age', $f)[0].style.display = 'none';
+  	}
+
+  	function s_all(){
+  		$f.style.display = 'block';
+  		$d('#w-name', $f)[0].style.display = 'block';
+  		$d('#w-age', $f)[0].style.display = 'block';
+  	}
+  });
+  function $d(s, $context){
+  	return $context ? $context.querySelectorAll(s) : d.querySelectorAll(s);
+  }
+
+
+ /*
+ 	@params c{   //xhr配置
+		method :'' //方法,
+		url: '' //地址,
+		hs [] //修改的头部信息,
+
+ 	}, cb() //成功后的回调函数
+ */
+  function aS(c, cb){
+  	var xhr = new XMLHttpRequest();
+  	xhr.open(c.method.toUpperCase(), c.url);
+  	for(var h in c.hs){
+  		xhr.setRequestHeader(h, hs[h]);
+  	}
+  	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); //全部配置为x-www-form-urlencoded
+  	xhr.send();
+
+  	xhr.addEventListener('readystatechange', function(){
+  		if(xhr.status == 200 && xhr.readyState == 4){
+  			cb(xhr.responseText);
+  		}
+  	});
+  }
+  </script>
+</html>

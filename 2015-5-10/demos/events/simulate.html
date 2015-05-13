@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>simulate</title>
+</head>
+<style type="text/css">
+	#father{
+		width: 200px;
+		height: 200px;
+		border: 1px solid #ccc;
+	}
+	#sub{
+		width: 50px;
+		height: 50px;
+		border: 1px solid red;
+	}
+</style>
+<body>
+	<div id="father">
+		<div id="sub">sub</div>
+	</div>
+</body>
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function(){
+		var $f = $d('#father');
+		$f.addEventListener('mouseover', function(ev){
+			if(ev.fromElement === document.body &&ev.toElement === this){
+				console.log('mouseover');
+				//todo
+			}
+		});
+		$f.addEventListener('mouseout', function(ev){
+			if(ev.fromElement === this && ev.toElement === document.body) {
+				console.log('mouseout');
+				//todo
+			}
+		});
+	});
+
+	function $d(s){
+		return document.querySelector(s);
+	}
+</script>
+</html>

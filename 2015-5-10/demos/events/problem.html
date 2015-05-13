@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mouseleave simulate</title>
+</head>
+<style type="text/css">
+	body{
+		margin: 0;
+		padding: 0;
+	}
+	#outer{
+		display: inline-block;
+		padding: 20px;
+		border: 1px solid #ccc;
+		cursor: pointer;
+	}
+	#inner{
+		width: 100px;
+		height: 20px;
+		text-align: center;
+		line-height: 20px;
+		border: 1px solid #ccc;
+	}
+	#content{
+		width: 200px;
+		height: 200px;
+		border: 1px solid #ccc;
+		position:absolute;
+		left: 0px;
+	}
+	.s-show{
+		-webkit-animation : slow 4s;
+	}
+	/*@-webkit-keyframes slow{
+		from{
+			left: 0;
+		}
+		to{
+			left: 300px;
+		}
+
+	}*/
+</style>
+<body>
+	<div id="outer">
+		<div id="inner">move</div>
+	</div>
+	<div id="content">segs</div>
+</body>
+<script type="text/javascript">
+	var arr_each = Array.prototype.forEach, d = document, w = window;
+	d.addEventListener('DOMContentLoaded', function(ev){
+		var $btn = $d('#outer')[0];
+		$btn.addEventListener('mouseover', function(){
+			aL($d('#content')[0], 200);
+		});
+		$btn.addEventListener('mouseover', function(){
+			$d('#content')[0].style['left'] = 0;
+		});
+	});
+
+	function $d(s){
+		return d.querySelectorAll(s);
+	}
+
+	//left 缓动
+	function aL($c, target){
+		function repaint(stamp){
+			var cL = parseFloat( w.getComputedStyle($c, null)['left'] );
+			cL++;
+			$c.style['left'] = cL + 'px';
+			cL <= target ? w.requestAnimationFrame(arguments.callee) : $c.style['left'] = target + 'px';
+		}
+
+		w.requestAnimationFrame(repaint);
+	} 
+
+</script>
+</html>

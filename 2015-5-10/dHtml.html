@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+	<head>
+		<title>第二次</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	
+		<link href="../lib/css/styles.css" rel="stylesheet" />
+		<style type="text/css">
+			.f-w{
+				word-wrap: break-word;
+			}
+			h1{
+				font-size: 60px;
+				font-family: "microsoft yahei";
+				text-shadow: 0 0 20px rgba(0,0,0,0.5);
+				/*-webkit-animation:shadow 2s  ease-in-out infinite alternate;*/
+			}
+			h3{
+				font-size: 30px;
+				font-family: "microsoft yahei";
+				text-shadow: 0 0 20px rgba(0,0,0,0.5);
+				/*-webkit-animation:shadow 2s  ease-in-out infinite alternate;*/
+			}
+			.step{
+				background: rgba(234,234,234,0.4);
+			}
+
+			/*@-webkit-keyframes shadow{
+				from{
+					text-shadow: 0 0 0px rgba(0,0,0,0.5);
+				}
+				to{
+					text-shadow: 0 0 50px rgba(0,0,0,0.5);
+				}
+			}*/
+		</style>
+	</head>
+	<body>
+		<div id="impress">
+			<div class="no-support-message">
+				<h1>该浏览器不支持!!!</h1>
+			</div>
+			<div class="step" data-x="0" data-y="0" data-z="1000">
+				<h1>关于事件</h1>
+				<h3>事件冒泡与捕捉</h3>
+				<h3>事件代理</h3>
+				<h3>submit事件模拟</h3>
+				<h3>mouseleave和mouseenter事件模拟</h3>
+			</div>
+			<div class="step" data-x="1000" data-y="0" data-rotate-y="90">
+				<h1>正则表达式</h1>
+				<h3>exec,match,test,replace</h3>
+				<h3>工具:https://www.debuggex.com</h3>
+			</div>
+			<div class="step" data-x="0" data-y="0" data-z="-1000" data-rotate-y="180">
+				<h1>关于ajax</h1>
+				<h3>XMLHttpRequest</h3>
+				<h3>Content-Type</h3>
+			</div>
+			<div class="step" data-x="-1000" data-y="0" data-z="0" data-rotate-y="270">
+				<h3>RESETFUL(Representational State Transfer 表现层状态转化)</h3>
+				<h3>PUT、GET、POST、DELETE</h3>
+				<h3>接口设计:</h3>
+				<h3>http(s)://server.com/app-name/{version}/{domain}/{rest-convention}</h3>
+				<h3>参考网址: http://www.ruanyifeng.com/blog/2014/05/restful_api.html</h3>
+				<!-- <h1>跨域</h1>
+				<h3>CORS</h3>
+				<h3>jsonp</h3>
+				<h3>document.domain</h3> -->
+			</div>
+			<div class="step" data-x="0" data-y="0" data-z="" data-rotate-y="0" >
+				<h1>跨域</h1>
+				<h3>CORS(Access-Control-Allow-Origin)</h3>
+				<h3>jsonp</h3>
+				<h3>document.domain</h3>
+			</div>
+		</div>
+		<script type="text/javascript" src="../lib/js/impress.js"></script>
+		<!--
+			call `impress().init()` function to initialize impress.js presentation.
+		-->
+		<script>impress().init();</script>
+	</body>
+</html>
