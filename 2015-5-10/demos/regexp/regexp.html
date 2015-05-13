@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	//正则表达式
+	//表单验证 、 sizzle
+	//RegExp
+	var reg = new RegExp('\d+', 'gi');
+	var reg = /\d+/gi; 
+
+	//直接量
+	var reg = /lijinxin/gi;
+	reg.test('lijinxin34675');
+
+	//字符类  \d, \w, \W, ., \s,\S, [ ]
+	var reg = /\w+/gi;
+	reg.test('lijinxinx');
+
+	//选择 //   |  
+	var reg = /a|b|c/gi;
+	// reg.test('abc'); 
+	reg.exec('abc');
+
+	//分组、子表达式
+	//分组、引用
+	var str = 'lijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxin';
+	var reg = /(lijinxin)+/gi;
+	reg.exec(str);
+
+	var tag =  '<div>sdgiusg</div>';
+	var reg = /<(div)>\w+<\/\1>/gi;
+	reg.exec(tag);
+</script>
+
+</html>
