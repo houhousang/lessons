@@ -34,9 +34,9 @@
   		<input type="submit" value="ok">
   	</form>
 
-  	<div id="info">
-  	</div>
+  	<div id="info"></div>
   </body>
+
   <script type="text/javascript">
   var d = document, arr_each = [].forEach;
 
@@ -139,3 +139,16 @@
   }
   </script>
 </html>
+
+
+<!--
+
+POST GET
+
+GET localhost/users/v1.0.0/2013210771
+POST localhost/users/v1.0.0/2013210771/data?name=lijinxin&age=20
+PUT  localhost/users/v1.0.0/2013210771/data?name=liabaohua&age=21
+DELETE localhost/users/v1.0.0/2013210771
+
+RESETFUL: GET(查询)  POST(添加)  PUT(更新) DELETE(删除）
+ -->

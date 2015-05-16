@@ -18,7 +18,7 @@
 	var reg = /lijinxin/gi;
 	reg.test('lijinxin34675');
 
-	//字符类  \d, \w, \W, ., \s,\S, [ ]
+	//字符类  \d, \w, \W, ., \s,\S, [ ] ,[^a-z], \b和 [\b]
 	var reg = /\w+/gi;
 	reg.test('lijinxinx');
 
@@ -29,6 +29,7 @@
 
 	//分组、子表达式
 	//分组、引用
+	//exec: null || []
 	var str = 'lijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxinlijinxin';
 	var reg = /(lijinxin)+/gi;
 	reg.exec(str);
@@ -36,6 +37,59 @@
 	var tag =  '<div>sdgiusg</div>';
 	var reg = /<(div)>\w+<\/\1>/gi;
 	reg.exec(tag);
-</script>
 
+	//(?:)
+	var reg = /(span?)(?:div)+\1/
+	console.log( reg.exec('spandiv') );
+
+	//作业:匹配标签里面的内容
+	var str1 = '<div>123</div>';
+
+	//引用:括号从左到又开始数
+	var reg = /<((div)(span))>\2/;
+	console.log(reg.exec('<divspan>'));
+
+	//全局模式下
+	var reg = /(div)/;
+	console.log( reg.exec('divdivdiv') );
+
+	//贪婪的重复 + {1,}, *{0,}, ?{0,1}, {}....
+	//非贪婪的重复 +?, {2,6}?
+	var reg = /\d+/;
+	reg.exec('457');
+
+	var reg=  /\d{2,6}?/;
+	console.log(reg.exec('123456'));
+
+	//指定位置^,$,(?!),(?=)  [^]   /^ab/
+	var str = 'wortghfgjd sewdgsdhg swerghdehrdeh wsegtsdtg';
+	var reg = /\b\w+\b/gi; 
+	var rets = [], temp;
+	reg.exec(str)
+	//作业: 提取出str的类单词
+
+	var str = 'abc';
+	var reg = /^abc$/;
+	reg.exec(str);
+
+	//断言(预测) (?=) (?!)
+	var reg = /abc(?=div)/;
+	reg.exec('abcdiv');
+
+	var reg = /abc(?!div)\d+/;
+	console.log( reg.exec('abc5') );
+
+	//匹配模式 m,g,i
+	var reg = /^\d?[^\d]$/gm;
+	reg.exec('1b\n2b');
+
+	//作业: replace, test, match, split方法例子
+
+	//总结: 直接量， 字符类， 子表达式和引用和match还有exec，重复（非贪婪）， 指定位置(断言， 始末条件， 分界符)， 匹配模式。 
+
+	//作业:逆向分析举一个例子
+	//1. /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/
+	//2./\\(?:["\\\/bfnrt]|u[\da-fA-F]{4})/g
+	//3./(?:^|:|,)(?:\s*\[)+/g
+</script>
 </html>
