@@ -1,0 +1,8 @@
+CACHE MANIFEST
+# 以上一行开头
+
+# 要缓存的资源列表,路径相对本文件来说
+CACHE:
+../storage.html
+NETWORK:
+storage.js

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" manifest="appcache/storage.appcache">
+<head>
+	<meta charset="UTF-8">
+	<title>storage</title>
+</head>
+<body>
+<h1>storage</h1>
+<form data-type="local" class="js-s_form">
+	<label for="nV">localStorage</label>
+	<input type="text" name="nV" placeholder="input new value">
+	<input type="submit" value="save">
+</form>
+<br>
+<form data-type="session" class="js-s_form">
+	<label for="nV">sessionStorage</label>
+	<input type="text" name="nV" placeholder="input new value">
+	<input type="submit" value="save">
+</form>
+</body>
+<script src="appcache/storage.js" type="text/javascript" charset="utf-8"></script>
+</html>
+
+<!-- storage 作用域、期限
+----------localStorage--------------
+		  文档源(domain) 永久（除非手动删除)
+----------sessionStorage------------
+		  文档源+窗口 窗口打开期间
+ -->
+
+<!-- storage API
+1. setItem   增、改
+2. removeItem/delete/clear 删
+3. getItem 查
+4. 获取键值
+ -->
+
+ <!-- web存储容量比较
+ cookie < userData < Storage
+  -->

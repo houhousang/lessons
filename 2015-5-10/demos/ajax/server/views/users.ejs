@@ -89,7 +89,6 @@
   		if( config.method == 'POST' || config.method == 'PUT' ){
   			config.url += '/data?name=' + $f.name.value + '&' + 'age=' + $f.age.value;		
   		}
-  		console.log(config.url);
   		aS(config,function(res){
   			$d('#info')[0].innerText = res;
   		}, function(res){
@@ -152,3 +151,15 @@ DELETE localhost/users/v1.0.0/2013210771
 
 RESETFUL: GET(查询)  POST(添加)  PUT(更新) DELETE(删除）
  -->
+
+作业:
+1.自己去看replace, match, split方法并自己举例
+2.匹配   '<div>hahaah</div>'里面的内容
+3.将 ‘man woman boy girl\n people police ’里面的单词给提取出来保存在一个数组里
+4.    /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/        
+      /\\(?:["\\\/bfnrt]|u[\da-fA-F]{4})/g
+      /(?:^|:|,)(?:\s*\[)+/g
+
+      逆向分析上面三个正则并一个例子出来
+
+工具: zeal/dash(API文档软件)   w3c.org/ecmascript.org(最权威的规范) developer.mozilla.org(对w3c规范的解读)           
